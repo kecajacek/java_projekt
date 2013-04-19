@@ -1,1 +1,7 @@
 zobaczymy jak dzia³a git : ) 
+
+dodaje jakieœ 2 linijki 
+z bezsensownym tekstem. 
+
+
+i jeszcze zwyby wyprobowac diff! 
