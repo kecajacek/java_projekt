@@ -19,7 +19,7 @@ public class ProjectCyclotron extends JFrame implements ActionListener
 	protected JMenuItem informations;
 
 	protected PanelCyclotron mainPanel; 
-	
+
 	protected int WIDTH=800;
 	protected int HEIGHT=600; 
 	
@@ -29,6 +29,7 @@ public class ProjectCyclotron extends JFrame implements ActionListener
 		setTitle("Cyklotron Marysia & Jacek");
 		setSize(WIDTH, HEIGHT);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
 		setLayout(null);
 		setVisible(true);
 		
