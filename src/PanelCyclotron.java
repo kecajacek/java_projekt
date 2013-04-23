@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,8 @@ public class PanelCyclotron extends Panel implements ActionListener
 	protected JLabel labelVoltage, labelMagneticInduction, labelCharge, labelMass, labelVelocity, labelParticles;
 	protected JLabel labelCurrentEnergy, labelCurrentVelocity;
 	protected JComboBox<String> particles;
+	protected PaintCyclotron cyclotron;
+	protected Graphics g;
 	 
 	protected int WIDTH=800;
 	protected int HEIGHT=600; 
@@ -104,6 +107,12 @@ public class PanelCyclotron extends Panel implements ActionListener
 		
 		// ACTIONLISTENERS
 		particles.addActionListener(this);
+		
+		//CYCLOTRON 
+		cyclotron = new PaintCyclotron();
+		cyclotron.setBackground(Color.white);
+		cyclotron.setBounds(350, 100, 400, 350);
+		add(cyclotron);
 		
 		
 		// ADDING THINGS
