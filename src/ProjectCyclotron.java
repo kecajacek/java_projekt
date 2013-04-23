@@ -27,7 +27,7 @@ public class ProjectCyclotron extends JFrame implements ActionListener
 	{
 		// FRAME SETTINGS 
 		setTitle("Cyklotron Marysia & Jacek");
-		setSize(WIDTH, HEIGHT);
+		setBounds(20, 20, WIDTH, HEIGHT);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		setLayout(null);

@@ -2,23 +2,23 @@ import java.awt.Color;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 
-public class PanelCyclotron extends Panel implements ActionListener, MouseListener
+public class PanelCyclotron extends Panel implements ActionListener
 {
 	private static final long serialVersionUID = 1L;
 
 	protected JTextField voltage, magneticInduction, charge, mass, velocity, currentEnergy, currentVelocity;
 	protected JButton showEnergy, showVelocity, startSimolation, stopSimulation, newSimulation;
-	protected JLabel labelVoltage, labelMagneticInduction, labelCharge, labelMass, labelVelocity;
+	protected JLabel labelVoltage, labelMagneticInduction, labelCharge, labelMass, labelVelocity, labelParticles;
 	protected JLabel labelCurrentEnergy, labelCurrentVelocity;
+	protected JComboBox<String> particles;
 	 
 	protected int WIDTH=800;
 	protected int HEIGHT=600; 
@@ -52,6 +52,16 @@ public class PanelCyclotron extends Panel implements ActionListener, MouseListen
 		stopSimulation = new JButton(stopSimulationIcon);
 		newSimulation = new JButton(newSimulationIcon);
 		
+		// COMBOBOX
+		particles = new JComboBox<String>();
+		particles.addItem("Elektron");
+		particles.addItem("Proton");
+		particles.addItem("Pozyton");
+		particles.addItem("J¹dro Helu");
+		particles.addItem("J¹dro Deuteru");
+		particles.addItem("Uran?");
+
+		
 		
 		// BOUNDS 
 		
@@ -60,6 +70,7 @@ public class PanelCyclotron extends Panel implements ActionListener, MouseListen
 		charge.setBounds(100, 150 + 100, 60, 30);
 		mass.setBounds(100, 150 + 150, 60, 30);
 		velocity.setBounds(100, 150 + 200, 60, 30);
+		particles.setBounds(50, 450, 150, 30);
 		currentEnergy.setBounds(50 + 420, 30, 140, 30);
 		currentVelocity.setBounds(50 + 570, 30, 140, 30);
 		
@@ -77,6 +88,7 @@ public class PanelCyclotron extends Panel implements ActionListener, MouseListen
 		labelCharge = new JLabel("q[e]");
 		labelMass = new JLabel("m[mp]");
 		labelVelocity = new JLabel("Vo[c]");
+		labelParticles = new JLabel("Popularne cz¹ski: ");
 		labelCurrentEnergy = new JLabel("Aktualna energia [eV]");
 		labelCurrentVelocity = new JLabel("Aktualna prêdkoœæ [m/s]");
 		
@@ -85,9 +97,13 @@ public class PanelCyclotron extends Panel implements ActionListener, MouseListen
 		labelCharge.setBounds(50, 150 + 100, 60, 30);
 		labelMass.setBounds(50, 150 + 150, 60, 30);
 		labelVelocity.setBounds(50, 150 + 200, 60, 30);
+		labelParticles.setBounds(50, 420, 150, 30);
 		
 		labelCurrentEnergy.setBounds(50 + 420, 5, 140, 30);
 		labelCurrentVelocity.setBounds(50 + 570, 5, 140, 30);
+		
+		// ACTIONLISTENERS
+		particles.addActionListener(this);
 		
 		
 		// ADDING THINGS
@@ -98,6 +114,7 @@ public class PanelCyclotron extends Panel implements ActionListener, MouseListen
 		add(charge); 
 		add(mass); 
 		add(velocity); 
+		add(particles);
 		add(currentEnergy); 
 		add(currentVelocity); 
 		
@@ -113,6 +130,7 @@ public class PanelCyclotron extends Panel implements ActionListener, MouseListen
 		add(labelCharge);
 		add(labelMass);
 		add(labelVelocity);
+		add(labelParticles);
 		add(labelCurrentEnergy);
 		add(labelCurrentVelocity);
 		
@@ -120,45 +138,27 @@ public class PanelCyclotron extends Panel implements ActionListener, MouseListen
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) 
+	{
+		Object source = e.getSource();
+		
+		if (source == particles)
+		{
+			String particle = particles.getSelectedItem().toString();
+			if ( particle.equals("Elektron"))
+			{
+				// TODO  need to do set&get things
+			}
+			else if (particle.equals("Proton"))
+			{
+				// TODO
+			}
+			else if (particle.equals("Pozyton"))
+			{
+				// TODO
+			}
+		}
 		
 	}
-
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 }
