@@ -73,7 +73,7 @@ public class PanelCyclotron extends Panel implements ActionListener
 		charge.setBounds(100, 150 + 100, 60, 30);
 		mass.setBounds(100, 150 + 150, 60, 30);
 		velocity.setBounds(100, 150 + 200, 60, 30);
-		%mama maman 
+
 		particles.setBounds(50, 450, 150, 30);
 		currentEnergy.setBounds(50 + 420, 30, 140, 30);
 		currentVelocity.setBounds(50 + 570, 30, 140, 30);
