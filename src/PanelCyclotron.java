@@ -73,7 +73,6 @@ public class PanelCyclotron extends Panel implements ActionListener
 		charge.setBounds(100, 150 + 100, 60, 30);
 		mass.setBounds(100, 150 + 150, 60, 30);
 		velocity.setBounds(100, 150 + 200, 60, 30);
-
 		particles.setBounds(50, 450, 150, 30);
 		currentEnergy.setBounds(50 + 420, 30, 140, 30);
 		currentVelocity.setBounds(50 + 570, 30, 140, 30);
@@ -157,10 +156,16 @@ public class PanelCyclotron extends Panel implements ActionListener
 			String particle = particles.getSelectedItem().toString();
 			if ( particle.equals("Elektron"))
 			{
+				voltage.setText("500");
+				magneticInduction.setText("2");
+				
+				
 				// TODO  need to do set&get things
 			}
 			else if (particle.equals("Proton"))
 			{
+				voltage.setText("200");
+				magneticInduction.setText("3");
 				// TODO
 			}
 			else if (particle.equals("Pozyton"))
