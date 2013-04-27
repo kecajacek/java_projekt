@@ -158,6 +158,7 @@ public class PanelCyclotron extends Panel implements ActionListener
 			{
 				voltage.setText("500");
 				magneticInduction.setText("2");
+				// costam zobaczymy co bedzie 
 				
 				
 				// TODO  need to do set&get things
