@@ -62,7 +62,7 @@ public class PanelCyclotron extends Panel implements ActionListener
 		particles.addItem("Pozyton");
 		particles.addItem("J퉐ro Helu");
 		particles.addItem("J퉐ro Deuteru");
-		particles.addItem("Uran?");
+		particles.addItem("Argon");
 
 		
 		
@@ -156,25 +156,58 @@ public class PanelCyclotron extends Panel implements ActionListener
 			String particle = particles.getSelectedItem().toString();
 			if ( particle.equals("Elektron"))
 			{
-				voltage.setText("500");
+				/*voltage.setText("500");
 				magneticInduction.setText("2");
-				// costam zobaczymy co bedzie 
-				
+				 costam zobaczymy co bedzie  */
+				charge.setText("1");
+				mass.setText("0,00054");
 				
 				// TODO  need to do set&get things
 			}
 			else if (particle.equals("Proton"))
 			{
-				voltage.setText("200");
-				magneticInduction.setText("3");
+				/*voltage.setText("200");
+				magneticInduction.setText("3"); */
 				// TODO
+				
+				charge.setText("-1");
+				mass.setText("1");
 			}
 			else if (particle.equals("Pozyton"))
 			{
+				
+				charge.setText("-1");
+				mass.setText("0,00054");
 				// TODO
 			}
-		}
-		
-	}
+			else if (particle.equals("J퉐ro Helu"))
+			{
+				charge.setText("-2");
+				mass.setText("4");
+				
+			}
+			else if (particle.equals("J퉐ro Deuteru"))
+			{
+				charge.setText("-1");
+				mass.setText("2");
+			}
+			else if(particle.equals("Argon"))
+			{
+				charge.setText("-6");
+				mass.setText("18");
 
-}
+			}
+		}
+		/*if(source == voltage)
+		{
+			try
+			{
+				voltage.getText();
+			}
+			catch (NumberFormatException nfe)
+			{
+				voltage.setText("LICZBA");
+			}
+		}
+*/	}
+}	
