@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
@@ -45,6 +46,14 @@ public class PanelCyclotron extends Panel implements ActionListener
 		
 		showEnergy = new JButton("Poka¿ wykres E(t)");
 		showVelocity = new JButton("Poka¿ wykres V(t)");
+		
+		//FIRST RUN SETTINGS 
+		
+		voltage.setText("100");
+		magneticInduction.setText("3.1");
+		charge.setText("-1");
+		mass.setText("0.00054");
+		velocity.setText("0.001");
 		
 		// ICON BUTTONS
 		ImageIcon startSimulationIcon = new ImageIcon("images/startSimulation.png");
@@ -86,7 +95,7 @@ public class PanelCyclotron extends Panel implements ActionListener
 		
 		// LABELS
 		
-		labelVoltage = new JLabel("U[V]");
+		labelVoltage = new JLabel("U[kV]");
 		labelMagneticInduction = new JLabel("B[T]");
 		labelCharge = new JLabel("q[e]");
 		labelMass = new JLabel("m[mp]");
@@ -107,6 +116,16 @@ public class PanelCyclotron extends Panel implements ActionListener
 		
 		// ACTIONLISTENERS
 		particles.addActionListener(this);
+		showEnergy.addActionListener(this);
+		showVelocity.addActionListener(this);
+		startSimolation.addActionListener(this);
+		stopSimulation.addActionListener(this);
+		newSimulation.addActionListener(this);
+		voltage.addActionListener(this);
+		magneticInduction.addActionListener(this);
+		charge.addActionListener(this);
+		mass.addActionListener(this);
+		velocity.addActionListener(this);
 		
 		//CYCLOTRON 
 		cyclotron = new PaintCyclotron();
@@ -156,58 +175,140 @@ public class PanelCyclotron extends Panel implements ActionListener
 			String particle = particles.getSelectedItem().toString();
 			if ( particle.equals("Elektron"))
 			{
-				/*voltage.setText("500");
-				magneticInduction.setText("2");
-				 costam zobaczymy co bedzie  */
-				charge.setText("1");
-				mass.setText("0,00054");
+				voltage.setText("100");
+				magneticInduction.setText("3.1");
+				charge.setText("-1");
+				mass.setText("0.00054");
+				velocity.setText("0.001");
 				
-				// TODO  need to do set&get things
 			}
 			else if (particle.equals("Proton"))
 			{
-				/*voltage.setText("200");
-				magneticInduction.setText("3"); */
-				// TODO
-				
-				charge.setText("-1");
+				voltage.setText("100");
+				magneticInduction.setText("3.1");
+				charge.setText("1");
 				mass.setText("1");
+				velocity.setText("0.001");
 			}
 			else if (particle.equals("Pozyton"))
 			{
-				
-				charge.setText("-1");
-				mass.setText("0,00054");
-				// TODO
+				voltage.setText("100");
+				magneticInduction.setText("3.1");
+				charge.setText("1");
+				mass.setText("0.00054");
+				velocity.setText("0.001");
 			}
 			else if (particle.equals("J¹dro Helu"))
 			{
-				charge.setText("-2");
+				voltage.setText("100");
+				magneticInduction.setText("3.1");
+				charge.setText("2");
 				mass.setText("4");
+				velocity.setText("0.001");
 				
 			}
 			else if (particle.equals("J¹dro Deuteru"))
 			{
-				charge.setText("-1");
+				
+				voltage.setText("100");
+				magneticInduction.setText("3.1");
+				charge.setText("1");
 				mass.setText("2");
+				velocity.setText("0.001");
 			}
 			else if(particle.equals("Argon"))
 			{
-				charge.setText("-6");
+				voltage.setText("100");
+				magneticInduction.setText("3.1");
+				charge.setText("6");
 				mass.setText("18");
-
+				velocity.setText("0.001");
 			}
 		}
-		/*if(source == voltage)
+			
+		else if(source == showEnergy)
+		{
+			System.out.println("klikEnergy :)");
+		}
+		else if(source == showVelocity)
+		{
+			System.out.println("klikvelocity :)");
+		}
+		else if(source == startSimolation)
+		{
+			System.out.println("klikstartsim :)");
+		}
+		else if(source == stopSimulation)
+			{
+				System.out.println("klikstopsim :)");
+			}
+		else if(source == newSimulation)
+			{
+				System.out.println("kliknewsim :)");
+			}
+		
+		
+		//EXCEPRIONS OF BAD VALUE -> spr przed startem, mo¿e lepiej ... 
+		
+		else if(source == voltage)
 		{
 			try
 			{
-				voltage.getText();
+				Double.parseDouble(voltage.getText());
 			}
-			catch (NumberFormatException nfe)
+			catch (NumberFormatException exception)
 			{
-				voltage.setText("LICZBA");
+				JOptionPane.showMessageDialog(null, "Podaj wartoœæ liczbow¹.", "Niepoprawne Dane Wejœciowe", JOptionPane.ERROR_MESSAGE);
+				voltage.setText("100");
 			}
 		}
-*/	}
+		else if(source == magneticInduction)
+		{
+			try
+			{
+				Double.parseDouble(magneticInduction.getText());
+			}
+			catch (NumberFormatException exception)
+			{
+				JOptionPane.showMessageDialog(null, "Podaj wartoœæ liczbow¹.", "Niepoprawne Dane Wejœciowe", JOptionPane.ERROR_MESSAGE);
+				magneticInduction.setText("3.1");
+			}
+		}
+		else if(source == charge)
+		{
+			try
+			{
+				Double.parseDouble(charge.getText());
+			}
+			catch (NumberFormatException exception)
+			{
+				JOptionPane.showMessageDialog(null, "Podaj wartoœæ liczbow¹.", "Niepoprawne Dane Wejœciowe", JOptionPane.ERROR_MESSAGE);
+				charge.setText("-1");
+			}
+		}
+		else if(source == mass)
+		{
+			try
+			{
+				Double.parseDouble(mass.getText());
+			}
+			catch (NumberFormatException exception)
+			{
+				JOptionPane.showMessageDialog(null, "Podaj wartoœæ liczbow¹.", "Niepoprawne Dane Wejœciowe", JOptionPane.ERROR_MESSAGE);
+				mass.setText("0.00054");
+			}
+		}
+		else if(source == velocity)
+		{
+			try
+			{
+				Double.parseDouble(velocity.getText());
+			}
+			catch (NumberFormatException exception)
+			{
+				JOptionPane.showMessageDialog(null, "Podaj wartoœæ liczbow¹.", "Niepoprawne Dane Wejœciowe", JOptionPane.ERROR_MESSAGE);
+				velocity.setText("0.001");
+			}
+		}
+	}
 }	

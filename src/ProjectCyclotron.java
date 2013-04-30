@@ -31,12 +31,8 @@ public class ProjectCyclotron extends JFrame implements ActionListener
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		setLayout(null);
-		setVisible(true);
-		
-		
-		
+	
 		// CREATING MENU
-		
 		menu = new JMenuBar(); 
 		
 		options = new JMenu("Opcje");
@@ -46,11 +42,11 @@ public class ProjectCyclotron extends JFrame implements ActionListener
 		close = new JMenuItem("Zamknij");
 		informations = new JMenuItem("Informacje");
 		
+		//ACTIONLISTENERS
 		close.addActionListener(this);
 		informations.addActionListener(this);
 		
 		// KEYSTROKES
-		
 		close.setAccelerator(KeyStroke.getKeyStroke("ctrl K"));
 		informations.setAccelerator(KeyStroke.getKeyStroke("ctrl I"));
 		
@@ -68,7 +64,9 @@ public class ProjectCyclotron extends JFrame implements ActionListener
 		mainPanel = new PanelCyclotron();
 		add(mainPanel);
 		
-				
+		
+		setVisible(true);
+			
 	}
 	public static void main(String[] args) 
 	{
